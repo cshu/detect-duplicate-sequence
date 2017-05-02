@@ -1,7 +1,7 @@
-#define NO_NEED_TO_AVERT_RACES
 #include <iostream>
 #include <unordered_map>
 #include <cassert>
+#define NO_NEED_TO_AVERT_RACES
 #include <cpprs.h>
 
 using namespace std;
@@ -10,12 +10,6 @@ int main(int argc, char *argv[])
 {
 	try{
 		if(argc<2)return 1;
-		//unique_ptr<size_t[]> fsi(new size_t[argc-1]);
-		//for(int i=argc-1;;--i){
-		//	if(!i)break;
-		//	fsi[i]=getfilesizeusingifstream(argv[i]);
-		//	ifstream ifstre_(argv[i],ios_base::binary);
-		//}
 		vector<vector<char>> fileco(argc-1);
 		for(int i=argc-2;;--i){
 			fileco[i]=readwholefileintovectorchar(argv[i+1]);
@@ -203,7 +197,7 @@ expandbothsides(second_ex_)
 			if(!i)break;
 		}
 		for(const auto &block:sofblock){
-			cout<<"Duplicate BEGIN\n"<<block.first<<"\nEND\n";
+			cout<<"SEQUENCE BEGIN\n"<<block.first<<"\nSEQUENCE END\n";
 			for(const auto &occur:block.second){
 				cout<<argv[occur.first+1]<<' '<<occur.second<<'\n';
 			}
