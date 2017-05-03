@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 		vector<vector<char>> fileco(argc-1);
 		for(int i=argc-2;;--i){
 			fileco[i]=readwholefileintovectorchar(argv[i+1]);
+			fileco[i].shrink_to_fit();
 			if(!i)break;
 		}
 #define siofblock 0x10//you need at least siofblock*2 consecutive bytes to be included in output, otherwise it's not fair (some 16-byte sequences are not searched, some 16-byte sequences are searched)
