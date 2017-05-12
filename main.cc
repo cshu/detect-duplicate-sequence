@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
 	try{
 		if(argc<2)return 1;
-		vector<vector<char>> fileco(argc-1);
+		vector<vector<char>> fileco(argc-1);//optimize use make_unique<vector[]>(...)
 		for(int i=argc-2;;--i){
 			fileco[i]=readwholefileintovectorchar(argv[i+1]);
 			fileco[i].shrink_to_fit();
